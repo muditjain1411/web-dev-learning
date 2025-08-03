@@ -1,0 +1,105 @@
+:root{
+--Green500: hsl(158, 36%, 37%);
+--Green700: hsl(158, 42%, 18%);
+--Black: hsl(212, 21%, 14%);
+--Grey: hsl(228, 12%, 48%);
+--Cream: hsl(30, 38%, 92%);
+--White: hsl(0, 0%, 100%);
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url("https://fonts.google.com/specimen/Montserrat");
+    font-weight: 500,700;
+}
+@font-face {
+    font-family: "Fraunces";
+    src: url("https://fonts.google.com/specimen/Fraunces");
+    font-weight: 700;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width:100vw;
+    background-color: var(--Cream);
+}
+.card{
+    display:flex;
+    background-color: var(--White);
+    border-radius: 10px;
+    width:30em;
+}
+.details{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    flex-basis: 50%;
+}
+.img{
+    border-radius: 10px;
+    
+    
+}
+.cat{
+    font-family: "montserrat";
+    font-size: 12px;
+    color: var(--Grey);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.name{
+    font-family: "fraunces";
+    color: var(--Black);
+    font-weight: 700;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.desc{
+    font-family: "montserrat";
+    color: var(--Grey);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    font-size: 14px;
+}
+.price{
+    display:flex;
+    align-items: center;
+    color: var(--Grey);
+    font-family: "fraunces";
+}
+.discounted{
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--Green500);
+    margin-right:0.5rem;
+    text-decoration: none;
+}
+.actual{
+    text-decoration: line-through;
+}
+.cart{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: var(--Green500);
+    padding:10px;
+    margin-top: 1rem;
+    color: var(--White);
+    text-decoration: none;
+    font-family: "montserrat";
+    font-weight: 700;
+}
+.cart span{
+    margin-left: 0.5rem;
+}
+.cart:hover{
+    background-color: var(--Green700);
+}

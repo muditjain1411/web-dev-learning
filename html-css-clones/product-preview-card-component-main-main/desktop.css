@@ -1,0 +1,13 @@
+/* .card{
+    flex-direction: row;
+    width:auto;
+} */
+.img{
+    background-image: url("images/image-product-desktop.jpg");
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width:10em;
+    height: 100%;
+    flex-basis: 50%;
+}

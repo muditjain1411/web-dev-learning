@@ -1,0 +1,34 @@
+.container{
+    flex-direction: row;
+    width: 60vw;
+    align-items: normal;
+    gap:0px;
+}
+.container img{
+    border-radius: 10px 0px 0px 10px;
+
+    width:100%;
+    object-fit: cover;
+    overflow:auto;
+}
+.details{
+    margin-top: 1em;
+}
+.popup{
+    width:auto;
+    border-radius: 10px;
+    left:auto;
+    right:-4.65em;
+    bottom:4em;
+}
+
+.popup::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}

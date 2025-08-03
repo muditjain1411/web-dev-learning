@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+:root{
+    --purple-50: hsl(260, 100%, 95%);
+    --purple-300: hsl(264, 82%, 80%);
+    --purple-500: hsl(263, 55%, 52%);
+    --white: hsl(0, 0%, 100%);
+    --grey-100: hsl(214, 17%, 92%);
+    --grey-200: hsl(0, 0%, 81%);
+    --grey-400: hsl(224, 10%, 45%);
+    --grey-500: hsl(217, 19%, 35%);
+    --dark-blue: hsl(219, 29%, 14%);
+    --black: hsl(0, 0%, 7%);
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 13px;
+    font-weight: 600;
+    font-family: "Barlow semi condensed";
+    display:flex;
+    justify-content: center;
+    background-color: var(--grey-100);
+}
+.container{
+    display:grid;
+    gap: 30px;
+    width:90vw;
+    margin-top: 6em;
+    margin-bottom: 6em;
+
+}
+.card{
+    padding: 15px;
+    border-radius: 10px
+}
+.user{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+.user img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+.review{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.user-info p:first-child{
+    font-size: 14px;
+}
+.review p:first-child{
+    font-size: 20px;
+}
+.purple{
+    background-color: var(--purple-500);
+    color: var(--grey-200);
+}
+.grey{
+    background-color: var(--grey-500);
+    color: var(--grey-200);
+}
+.white{
+    background-color: var(--white);
+    color: var(--grey-200);
+}
+.dark-blue{
+    background-color: var(--dark-blue);
+    color: var(--grey-400);
+}
+.white .user-info p:first-child,
+.white .review p:first-child{
+    color: var(--grey-500);
+}
+.white .review p:last-child{
+    color: var(--grey-400);
+}
+.dark-blue .user-info p:first-child,
+.dark-blue .review p:first-child{
+    color: var(--grey-200);
+}
+.dark-blue img{
+    border: 2px solid var(--purple-500);
+}
+.grey .user-info p:first-child,
+.grey .review p:first-child{
+    color: var(--white);
+}
+.purple .user-info p:first-child,
+.purple .review p:first-child{
+    color: var(--white);
+}
+.purple img{
+    border: 2px solid var(--purple-300);
+}
