@@ -1,0 +1,154 @@
+:root {
+  --Red: hsl(4, 100%, 67%);
+  --Blue800: hsl(234, 29%, 20%);
+  --Blue700: hsl(235, 18%, 26%);
+  --Grey: hsl(0, 0%, 58%);
+  --White: hsl(0, 0%, 100%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--Blue700);
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--Blue800);
+}
+#formCard {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--White);
+}
+#cardInfo > h1 {
+  margin-bottom: 0.5rem;
+  color: var(--Blue800);
+}
+#cardInfo {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.listElement {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  align-items: center;
+}
+.cardList {
+  margin-bottom: 0.5rem;
+}
+.cardLabel {
+  display: flex;
+  font-size: 13px;
+  font-weight: 800;
+  justify-content: space-between;
+}
+input[type="email"] {
+  width: 100%;
+  padding: 0.8rem;
+  cursor: pointer;
+  border: 1px solid var(--Grey);
+  border-radius: 8px;
+}
+#submitBtn {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--Blue800);
+  color: var(--White);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 8px;
+}
+#subscribeForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+input[type="email"]:focus {
+  outline: none;
+  border: 1.5px solid var(--Grey);
+  
+}
+#submitBtn:hover {
+  background-color: var(--Red);
+}
+.error{
+  color:var(--Red);
+  }
+.hidden {
+  display:none;
+}
+#successCard{
+  display:none;
+  /* display:flex; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--White);
+  padding:1rem;
+  gap:1rem;
+}
+#dismiss{
+  width:100%;
+  padding: 0.8rem;
+  background-color: var(--Blue800);
+  color: var(--White);
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor:pointer
+}
+#successCard>#info>h1{
+  margin-top:0.8rem;
+  margin-bottom: 0.8rem;
+}
+#dismiss:hover {
+  background-color: var(--Red);
+}
+
+@media (max-width: 480px) {
+  #desktopImg {
+    display: none;
+  }
+  #mobileImg {
+    object-fit: cover;
+    width: 100%;
+  }
+  #successCard{
+    width:100vw;
+    height: 100vh;
+  }
+}
+@media (min-width: 481px) {
+  #mobileImg {
+    display: none;
+  }
+  #desktopImg {
+    object-fit: cover;
+    height: 100%;
+    width: auto;
+  }
+  #formCard {
+    flex-direction: row-reverse;
+    height: 60vh;
+    margin-top: 4rem;
+    padding: 1rem;
+    gap: 1rem;
+    border-radius: 10px;
+  }
+  #cardInfo {
+    padding: 0;
+  }
+  #successCard{
+    width: 20rem;
+    border-radius: 10px;
+    margin-top: 8em;
+  }
+}
