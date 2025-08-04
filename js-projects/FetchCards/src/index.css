@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
+@import "tailwindcss";
+.Cfont{
+    font-family: "Delius", cursive;
+    font-weight: 600;
+    font-style: normal;
+}
+.Tfont {
+    font-family: "Nova Round", system-ui;
+    font-size: 20px;
+    font-weight: 800;
+    font-style: normal;
+}

@@ -1,0 +1,285 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+#main {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:2em;
+    justify-content: space-around;
+
+}
+#todoBox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+    position: relative;
+}
+.todo {
+    width: 320px;
+    border: none;
+    border-radius: 1.2em;
+    background: #fff;
+    box-shadow: 0 6px 32px rgba(60,60,90,0.10), 0 1.5px 4px rgba(60,60,90,0.08);
+    transition: box-shadow 0.2s, background 0.2s, height 0.18s cubic-bezier(0.4,0,0.2,1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.todo:hover {
+    box-shadow: 0 12px 32px rgba(60,60,90,0.18), 0 2px 8px rgba(60,60,90,0.12);
+}
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 1.2em 0.5em 1.2em;
+    background: transparent;
+}
+.todo img {
+    width: 2em;
+    filter: drop-shadow(0 1px 2px rgba(60,60,90,0.10));
+    transition: filter 0.2s;
+}
+.pointer{
+    cursor:pointer;
+}
+.todoTitle {
+    font-family: 'Rajdhani', 'Orbitron', 'Share Tech Mono', 'Segoe UI', Arial, sans-serif;
+    background: rgba(245, 247, 250, 0.85);
+    border: none;
+    font-weight: 600;
+    border-radius: 0.7em;
+    padding: 0.5em 0.8em;
+    font-size: 1.25rem;
+    max-width: 17ch;
+    color: #222;
+    box-shadow: 0 1px 4px rgba(60,60,90,0.06);
+    transition: background 0.2s, color 0.2s;
+}
+.todoTitle.edited {
+    background: #87ceeb !important;
+    color: #fff !important;
+}
+.task {
+    display: flex;
+    gap: 0.5em;
+    padding: 0.7em 1.2em;
+    align-items: center;
+    border-radius: 0.5em;
+    /* Remove background and shadow for a flat look */
+    background: transparent;
+    margin-bottom: 0.5em;
+    box-shadow: none;
+}
+.check {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.3em;
+    height: 1.3em;
+    border: 2px solid #b0c4de;
+    border-radius: 0.35em;
+    background: #f5f7fa;
+    box-shadow: 0 1px 4px rgba(60,60,90,0.10);
+    transition: border 0.2s, box-shadow 0.2s, background 0.2s;
+    outline: none;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+}
+.check:focus {
+    border-color: #00b4d8;
+    box-shadow: 0 0 0 2px #87ceeb44;
+}
+.check:checked {
+    background: #00b4d8;
+    border-color: #00b4d8;
+    box-shadow: 0 2px 8px rgba(135,206,235,0.18);
+}
+.check:after {
+    content: '';
+    display: block;
+    width: 0.5em;
+    height: 0.9em;
+    border: solid #fff;
+    border-width: 0 0.18em 0.18em 0;
+    position: absolute;
+    left: 0.38em;
+    top: 0.08em;
+    opacity: 0;
+    transform: scale(0.7) rotate(45deg);
+    transition: opacity 0.15s, transform 0.15s;
+    pointer-events: none;
+}
+.check:checked:after {
+    opacity: 1;
+    transform: scale(1) rotate(45deg);
+}
+.taskvalue {
+    font-family: 'Share Tech Mono', 'Rajdhani', 'Orbitron', 'Segoe UI', Arial, sans-serif;
+    width: 100%;
+    min-width: 0;
+    min-height: 1.8em;
+    background: transparent;
+    border: none;
+    font-weight: 600;
+    font-size: 1.05em;
+    color: #222;
+    outline: none;
+    padding: 0.2em 0.4em;
+    transition: color 0.2s, box-shadow 0.18s, height 0.18s cubic-bezier(0.4,0,0.2,1);
+    word-break: break-word;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    resize: none;
+    /* vertical-align: middle; */
+    box-sizing: border-box;
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    border-radius: 0.5em;
+    box-shadow: 0 1px 4px rgba(60,60,90,0.06);
+}
+.taskvalue:focus {
+    background: #f0faff;
+    box-shadow: 0 2px 12px rgba(0,224,255,0.10);
+}
+.check:checked ~ .taskvalue {
+    text-decoration: line-through;
+    opacity: 0.6;
+    color: #888;
+}
+.addTodo {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 64px;
+    z-index: 100;
+    background: linear-gradient(135deg, #87ceeb 60%, #f5f7fa 100%);
+    border-radius: 50%;
+    box-shadow: 0 4px 24px rgba(60,60,90,0.18);
+    padding: 12px;
+    transition: box-shadow 0.2s, background 0.2s;
+    border: none;
+}
+.addTodo:hover {
+    box-shadow: 0 8px 32px rgba(60,60,90,0.25);
+    background: linear-gradient(135deg, #00b4d8 60%, #f5f7fa 100%);
+}
+.todoDropdown {
+    position: absolute;
+    background: #fff;
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 8px 32px rgba(60,60,90,0.18);
+    padding: 0.7em 1.7em 0.7em 1.2em;
+    z-index: 1000;
+    cursor: pointer;
+    min-width: 150px;
+    font-family: inherit;
+    font-size: 1.05rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+    animation: fadeIn 0.18s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: none; }
+}
+.todoDropdown .deleteTodo {
+    color: #e74c3c;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin-bottom: 0.7em;
+    font-size: 1.05em;
+    transition: color 0.2s;
+}
+.todoDropdown .deleteTodo:hover {
+    color: #c0392b;
+}
+.todoDropdown .colorPicker {
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+    padding: 0.2em 0;
+}
+.todoDropdown .colorPicker span {
+    font-size: 1em;
+    color: #555;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+.todoDropdown .todoColorInput {
+    border: 2px solid #e0e0e0;
+    width: 32px;
+    height: 32px;
+    background: #f8f8f8;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(60,60,90,0.10);
+    cursor: pointer;
+    padding: 0;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+.todoDropdown .todoColorInput:hover,
+.todoDropdown .todoColorInput:focus {
+    border: 2px solid #87ceeb;
+    box-shadow: 0 4px 16px rgba(135,206,235,0.15);
+    outline: none;
+}
+.modern-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    background: #f5f7fa;
+    border: none;
+    border-radius: 10px;
+    padding: 0.5em 1.2em;
+    font-size: 1.05em;
+    font-weight: 600;
+    color: #333;
+    box-shadow: 0 2px 8px rgba(60,60,90,0.08);
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.modern-btn:hover, .modern-btn:focus {
+    background: #e3f1fa;
+    box-shadow: 0 4px 16px rgba(135,206,235,0.12);
+    outline: none;
+}
+#heading {
+    font-family: 'Orbitron', 'Rajdhani', 'Share Tech Mono', 'Segoe UI', Arial, sans-serif;
+    font-size: 2.6rem;
+    color: #00e0ff;
+    letter-spacing: 2.5px;
+    text-shadow: 0 2px 12px rgba(0,224,255,0.18);
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+}
+@media (max-width: 600px) {
+    #todoBox {
+        flex-direction: column;
+        align-items: center;
+    }
+    .todo {
+        width: 95vw;
+        min-width: 200px;
+    }
+    .addTodo {
+        right: 16px;
+        bottom: 16px;
+        width: 56px;
+        padding: 8px;
+    }
+}
